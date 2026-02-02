@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "ApplicationPackage",
+  "description": "Complete application package including resume, cover letter, and forms",
+  "properties": {
+    "tailoredResume": {
+      "type": "object",
+      "properties": {
+        "content": {"type": "string"},
+        "changelogSummary": {"type": "string"}
+      }
+    },
+    "coverLetter": {
+      "type": "object",
+      "properties": {
+        "content": {"type": "string"}
+      }
+    },
+    "formAnswers": {
+      "type": "object",
+      "properties": {
+        "answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {"type": "string"},
+              "answer": {"type": "string"},
+              "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+            }
+          }
+        }
+      }
+    },
+    "autofillPayload": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

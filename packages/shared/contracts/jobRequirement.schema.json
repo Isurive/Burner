@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "JobRequirement",
+  "description": "Job requirements extracted from job description",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Job title"
+    },
+    "company": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "requirements": {
+      "type": "array",
+      "description": "List of all requirements",
+      "items": {"type": "string"}
+    },
+    "top6": {
+      "type": "array",
+      "description": "Top 6 most important requirements",
+      "items": {"type": "string"},
+      "maxItems": 6
+    }
+  },
+  "required": ["title", "company", "requirements"]
+}

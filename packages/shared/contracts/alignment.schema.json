@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Alignment",
+  "description": "Alignment mapping and scores between job requirements and resume",
+  "properties": {
+    "alignmentMap": {
+      "type": "object",
+      "properties": {
+        "mappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "requirement": {"type": "string"},
+              "evidence": {"type": "string"},
+              "score": {"type": "number", "minimum": 0, "maximum": 1}
+            },
+            "required": ["requirement", "evidence", "score"]
+          }
+        }
+      }
+    },
+    "alignmentScores": {
+      "type": "object",
+      "properties": {
+        "overall": {"type": "number", "minimum": 0, "maximum": 1},
+        "byCategory": {
+          "type": "object",
+          "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      },
+      "required": ["overall"]
+    }
+  }
+}
